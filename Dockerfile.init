@@ -1,0 +1,30 @@
+# syntax=docker/dockerfile:1.4
+
+FROM hashicorp/terraform:1.3.3
+
+# install dependencies.
+RUN <<EOF
+apk add --update --no-cache \
+  postgresql-client \
+  python3 \
+  py3-psycopg2
+EOF
+
+# install the terraform dependencies.
+COPY .terraform.lock.hcl providers.tf ./
+RUN <<EOF
+terraform init
+EOF
+
+# install more dependencies.
+COPY --chmod=0755 test-postgres.py /usr/local/bin/test-postgres
+
+# install the init.
+COPY --chmod=0755 init.sh /usr/local/bin/init
+
+# install the rest of the code.
+COPY *.sql ./
+COPY *.tf ./
+
+# set the entrypoint.
+ENTRYPOINT ["/usr/local/bin/init"]
