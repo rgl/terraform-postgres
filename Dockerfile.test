@@ -1,7 +1,7 @@
 # syntax=docker/dockerfile:1.4
 
-# debian 11 (bullseye).
-FROM debian:11-slim
+# debian 12 (bookworm).
+FROM debian:12-slim
 
 # install dependencies.
 RUN <<EOF

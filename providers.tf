@@ -1,6 +1,6 @@
 # see https://github.com/hashicorp/terraform
 terraform {
-  required_version = "1.3.3"
+  required_version = "1.6.5"
   required_providers {
     # see https://github.com/cyrilgdn/terraform-provider-postgresql
     # see https://registry.terraform.io/providers/cyrilgdn/postgresql
