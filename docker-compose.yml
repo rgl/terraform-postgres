@@ -19,6 +19,8 @@ services:
       - PGPORT=5432
       - PGUSER=postgres
       - PGPASSWORD=postgres
+      - QUOTES_WRITER_USERNAME=bob
+      - QUOTES_WRITER_PASSWORD=bob
       - TF_LOG=DEBUG
       - TF_LOG_PATH=/.tfstate/terraform.log
     volumes:

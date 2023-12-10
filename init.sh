@@ -29,6 +29,8 @@ psql \
 \ddp
 EOF
 
+export PGUSER="$QUOTES_WRITER_USERNAME"
+export PGPASSWORD="$QUOTES_WRITER_PASSWORD"
 psql \
   --no-password \
   --echo-all \
