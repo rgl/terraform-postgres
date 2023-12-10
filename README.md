@@ -25,3 +25,12 @@ Use as:
 ```bash
 ./test.sh
 ```
+
+When anything goes wrong, you can execute psql commands as:
+
+```bash
+docker compose exec -T postgres psql -U postgres quotes <<'EOF'
+\d
+select * from quote;
+EOF
+```
