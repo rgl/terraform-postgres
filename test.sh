@@ -1,8 +1,13 @@
 #!/bin/bash
 set -euo pipefail
 
-# (re)start the test environment in background.
-docker compose down
+# destroy the existing environment.
+echo "destroying the existing environment..."
+docker compose down --volumes
+rm -f terraform.{log,tfstate,tfstate.backup} tfplan
+
+# start the environment in background.
+echo "creating the environment..."
 docker compose up --build --detach
 
 # wait for the init and test services to exit.
