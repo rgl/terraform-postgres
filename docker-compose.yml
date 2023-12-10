@@ -19,6 +19,8 @@ services:
       - PGPORT=5432
       - PGUSER=postgres
       - PGPASSWORD=postgres
+      - TF_LOG=DEBUG
+      - TF_LOG_PATH=/.tfstate/terraform.log
     volumes:
       - .:/.tfstate
   test:
