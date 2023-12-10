@@ -1,5 +1,3 @@
-create table quote(author varchar(80) not null, text varchar(255) not null, url varchar(255) null);
-
 insert into quote(author, text, url) values('Homer Simpson', 'To alcohol! The cause of... and solution to... all of life''s problems.', 'https://en.wikipedia.org/wiki/Homer_vs._the_Eighteenth_Amendment');
 insert into quote(author, text, url) values('President Skroob, Spaceballs', 'You got to help me. I don''t know what to do. I can''t make decisions. I''m a president!', 'https://en.wikipedia.org/wiki/Spaceballs');
 insert into quote(author, text, url) values('Pravin Lal', 'Beware of he who would deny you access to information, for in his heart he dreams himself your master.', 'https://alphacentauri.gamepedia.com/Peacekeeping_Forces');
