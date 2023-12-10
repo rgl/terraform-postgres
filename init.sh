@@ -3,9 +3,7 @@ set -euxo pipefail
 
 test-postgres wait
 
-terraform plan -out=tfplan
-
-terraform apply tfplan
+terraform apply -auto-approve
 
 psql \
   --no-password \
