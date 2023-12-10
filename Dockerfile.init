@@ -13,7 +13,7 @@ EOF
 # install the terraform dependencies.
 COPY .terraform.lock.hcl providers.tf ./
 RUN <<EOF
-terraform init
+terraform init -lockfile=readonly
 EOF
 
 # install more dependencies.
