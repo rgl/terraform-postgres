@@ -9,6 +9,9 @@ terraform {
       version = "1.17.1"
     }
   }
+  backend "local" {
+    path = ".tfstate/terraform.tfstate"
+  }
 }
 
 provider "postgresql" {

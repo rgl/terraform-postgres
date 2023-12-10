@@ -19,6 +19,8 @@ services:
       - PGPORT=5432
       - PGUSER=postgres
       - PGPASSWORD=postgres
+    volumes:
+      - .:/.tfstate
   test:
     depends_on:
       - init
