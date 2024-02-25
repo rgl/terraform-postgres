@@ -30,7 +30,9 @@ When anything goes wrong, you can execute psql commands as:
 
 ```bash
 docker compose exec -T postgres psql -U postgres quotes <<'EOF'
-\d
+\dt+ public.*
+\d+ public.*
 select * from quote;
 EOF
+docker compose exec -T postgres pg_dump -U postgres -s quotes
 ```
