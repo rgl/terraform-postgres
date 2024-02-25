@@ -1,10 +1,12 @@
-# syntax=docker/dockerfile:1.4
+# syntax=docker/dockerfile:1.6
 
 # debian 12 (bookworm).
 FROM debian:12-slim
 
 # install dependencies.
 RUN <<EOF
+#!/bin/bash
+set -euxo pipefail
 apt-get update
 apt-get install -y --no-install-recommends \
   postgresql-client-common \

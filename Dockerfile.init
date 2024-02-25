@@ -1,9 +1,12 @@
-# syntax=docker/dockerfile:1.4
+# syntax=docker/dockerfile:1.6
 
-FROM hashicorp/terraform:1.6.5
+# NB the terraform image is alpine based.
+FROM hashicorp/terraform:1.7.4
 
 # install dependencies.
 RUN <<EOF
+#!/bin/ash
+set -euxo pipefail
 apk add --update --no-cache \
   postgresql-client \
   python3 \
@@ -13,6 +16,8 @@ EOF
 # install the terraform dependencies.
 COPY .terraform.lock.hcl providers.tf ./
 RUN <<EOF
+#!/bin/ash
+set -euxo pipefail
 terraform init -lockfile=readonly
 EOF
 
