@@ -25,6 +25,25 @@ services:
       - TF_LOG_PATH=/.tfstate/terraform.log
     volumes:
       - .:/.tfstate
+  destroy:
+    profiles:
+      - destroy
+    build:
+      dockerfile: Dockerfile.init
+    # see https://www.postgresql.org/docs/16/libpq-envars.html
+    environment:
+      - PGHOST=postgres
+      - PGPORT=5432
+      - PGUSER=postgres
+      - PGPASSWORD=postgres
+      - TF_LOG=DEBUG
+      - TF_LOG_PATH=/.tfstate/terraform.log
+    volumes:
+      - .:/.tfstate
+    entrypoint: terraform
+    command:
+      - destroy
+      - -auto-approve
   clients-python:
     depends_on:
       init:

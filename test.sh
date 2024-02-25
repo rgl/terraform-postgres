@@ -25,3 +25,9 @@ function wait-for-service {
 wait-for-service init
 wait-for-service clients-python
 wait-for-service clients-node
+
+# destroy everything.
+echo "destroying resources..."
+docker compose run --build destroy
+echo "destroying the environment..."
+docker compose down --volumes
