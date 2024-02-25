@@ -2,6 +2,12 @@
 
 [![Build status](https://github.com/rgl/terraform-postgres/workflows/build/badge.svg)](https://github.com/rgl/terraform-postgres/actions?query=workflow%3Abuild)
 
+**WARNING this currently broken on `terraform destroy` due to:**
+
+```
+could not delete role quotes_writer: pq: role "quotes_writer" cannot be dropped because some objects depend on it
+```
+
 This initializes a PostgreSQL database using the [cyrilgdn/terraform-provider-postgresql](https://github.com/cyrilgdn/terraform-provider-postgresql) Terraform provider.
 
 This will:

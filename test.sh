@@ -4,6 +4,7 @@ set -euo pipefail
 # destroy the existing environment.
 echo "destroying the existing environment..."
 docker compose down --volumes --remove-orphans
+docker compose down --volumes --remove-orphans destroy
 rm -f terraform.{log,tfstate,tfstate.backup} tfplan
 
 # start the environment in background.
@@ -26,3 +27,9 @@ function wait-for-service {
 }
 wait-for-service init
 wait-for-service test
+
+# destroy everything.
+echo "destroying resources..."
+docker compose run --build destroy
+echo "destroying the environment..."
+docker compose down --volumes
