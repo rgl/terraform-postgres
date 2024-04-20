@@ -1,4 +1,4 @@
-# syntax=docker/dockerfile:1.6
+# syntax=docker/dockerfile:1.7
 
 # NB the terraform image is alpine based.
 FROM hashicorp/terraform:1.7.4
