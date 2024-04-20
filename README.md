@@ -36,3 +36,10 @@ select * from quote;
 EOF
 docker compose exec -T postgres pg_dump -U postgres -s quotes
 ```
+
+List this repository dependencies (and which have newer versions):
+
+```bash
+export GITHUB_COM_TOKEN='YOUR_GITHUB_PERSONAL_TOKEN'
+./renovate.sh
+```
