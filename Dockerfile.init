@@ -1,7 +1,7 @@
 # syntax=docker/dockerfile:1.7
 
 # NB the terraform image is alpine based.
-FROM hashicorp/terraform:1.7.4
+FROM hashicorp/terraform:1.8.1
 
 # install dependencies.
 RUN <<EOF
