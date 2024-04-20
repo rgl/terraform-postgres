@@ -6,7 +6,7 @@ terraform {
     # see https://registry.terraform.io/providers/cyrilgdn/postgresql
     postgresql = {
       source  = "cyrilgdn/postgresql"
-      version = "1.21.1-beta.1"
+      version = "1.22.0"
     }
   }
   backend "local" {
