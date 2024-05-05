@@ -14,7 +14,9 @@ This will:
   * Grant the `bob` user the `quotes_writer` role.
 * Create the `quotes` database schema as the `postgres` user using `psql`.
 * Populate the `quotes` database data as the `bob` user using `psql`.
-* Read a random quote from the `quotes` database as the `alice` user using a python application.
+* Read a random quote from the `quotes` database as the `alice` user.
+  * Using a [python application](clients/python/).
+  * Using a [node.js application](clients/node/).
 
 # Usage
 

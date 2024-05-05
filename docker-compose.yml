@@ -37,3 +37,15 @@ services:
       - PGUSER=alice
       - PGPASSWORD=alice
       - PGDATABASE=quotes
+  clients-node:
+    depends_on:
+      init:
+        condition: service_completed_successfully
+    build: clients/node
+    # see https://www.postgresql.org/docs/16/libpq-envars.html
+    environment:
+      - PGHOST=postgres
+      - PGPORT=5432
+      - PGUSER=alice
+      - PGPASSWORD=alice
+      - PGDATABASE=quotes

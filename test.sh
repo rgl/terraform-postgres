@@ -26,3 +26,4 @@ function wait-for-service {
 }
 wait-for-service init
 wait-for-service clients-python
+wait-for-service clients-node

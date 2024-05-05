@@ -1,0 +1,11 @@
+{
+  "name": "app",
+  "description": "example application",
+  "version": "1.0.0",
+  "license": "MIT",
+  "type": "module",
+  "main": "main.js",
+  "dependencies": {
+    "postgres": "3.4.4"
+  }
+}
