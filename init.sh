@@ -1,7 +1,7 @@
 #!/bin/ash
 set -euxo pipefail
 
-test-postgres wait
+wait-postgres
 
 terraform apply -auto-approve
 

@@ -25,12 +25,11 @@ services:
       - TF_LOG_PATH=/.tfstate/terraform.log
     volumes:
       - .:/.tfstate
-  test:
+  clients-python:
     depends_on:
-      - init
-      - postgres
-    build:
-      dockerfile: Dockerfile.test
+      init:
+        condition: service_completed_successfully
+    build: clients/python
     # see https://www.postgresql.org/docs/16/libpq-envars.html
     environment:
       - PGHOST=postgres

@@ -15,7 +15,7 @@ rm -rf /var/lib/apt/lists/*
 EOF
 
 # install the binaries.
-COPY --chmod=0755 test-postgres.py /usr/local/bin/test-postgres
+COPY --chmod=0755 main.py /usr/local/bin/main
 
 # set the entrypoint.
-ENTRYPOINT ["/usr/local/bin/test-postgres", "quote"]
+ENTRYPOINT ["/usr/local/bin/main"]

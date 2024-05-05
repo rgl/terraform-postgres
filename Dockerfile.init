@@ -22,7 +22,7 @@ terraform init -lockfile=readonly
 EOF
 
 # install more dependencies.
-COPY --chmod=0755 test-postgres.py /usr/local/bin/test-postgres
+COPY --chmod=0755 wait-postgres.py /usr/local/bin/wait-postgres
 
 # install the init.
 COPY --chmod=0755 init.sh /usr/local/bin/init

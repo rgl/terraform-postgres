@@ -10,7 +10,7 @@ rm -f terraform.{log,tfstate,tfstate.backup} tfplan
 echo "creating the environment..."
 docker compose up --build --detach
 
-# wait for the init and test services to exit.
+# wait for the init and clients services to exit.
 function wait-for-service {
   echo "waiting for the $1 service to exit..."
   while true; do
@@ -25,4 +25,4 @@ function wait-for-service {
   return $exit_code
 }
 wait-for-service init
-wait-for-service test
+wait-for-service clients-python

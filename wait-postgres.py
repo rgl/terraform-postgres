@@ -42,19 +42,13 @@ def wait_main(args):
   print(f"PostgreSQL User:           {sql_execute_scalar('select current_user')}")
   print(f"PostgreSQL Database:       {sql_execute_scalar('select current_catalog')}")
 
-def quote_main(args):
-  wait_main(None)
-  quote = sql_execute_scalar('''select text || ' -- ' || author from quote order by random() limit 1''')
-  print(f"Random Quote:              {quote}")
-
 def main():
   parser = argparse.ArgumentParser(
     formatter_class=argparse.RawDescriptionHelpFormatter,
     description=textwrap.dedent('''\
-      tests access to PostgreSQL
+      wait for PostgreSQL to be available
       example:
-        python3 %(prog)s -v wait
-        python3 %(prog)s -v quote
+        python3 %(prog)s -v
       '''))
   parser.add_argument(
     '--verbose',
@@ -62,11 +56,6 @@ def main():
     default=0,
     action='count',
     help='verbosity level. specify multiple to increase logging.')
-  subparsers = parser.add_subparsers(help='sub-command help')
-  wait_parser = subparsers.add_parser('wait', help='wait for postgres to be ready')
-  wait_parser.set_defaults(sub_command=wait_main)
-  quote_parser = subparsers.add_parser('quote', help='show a random quote')
-  quote_parser.set_defaults(sub_command=quote_main)
   args = parser.parse_args()
 
   LOGGING_FORMAT = '%(asctime)-15s %(levelname)s %(name)s: %(message)s'
@@ -79,6 +68,6 @@ def main():
   elif args.verbose >= 1:
     logging.basicConfig(level=logging.INFO, format=LOGGING_FORMAT)
 
-  args.sub_command(args)
+  wait_main(args)
 
 main()
