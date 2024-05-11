@@ -22,7 +22,7 @@ This will:
 
 Install docker compose.
 
-Use as:
+Create and test the environment:
 
 ```bash
 ./test.sh
@@ -37,6 +37,12 @@ docker compose exec -T postgres psql -U postgres quotes <<'EOF'
 select * from quote;
 EOF
 docker compose exec -T postgres pg_dump -U postgres -s quotes
+```
+
+Destroy the environment:
+
+```bash
+./destroy.sh
 ```
 
 List this repository dependencies (and which have newer versions):

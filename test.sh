@@ -2,9 +2,7 @@
 set -euo pipefail
 
 # destroy the existing environment.
-echo "destroying the existing environment..."
-docker compose down --volumes --remove-orphans
-rm -f terraform.{log,tfstate,tfstate.backup} tfplan
+./destroy.sh
 
 # start the environment in background.
 echo "creating the environment..."
